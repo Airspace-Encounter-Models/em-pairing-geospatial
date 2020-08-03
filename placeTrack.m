@@ -1,5 +1,6 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [time_s,lat_deg,lon_deg,alt_ft_msl,alt_ft_agl,xNorth_ft,yEast_ft,zDown_ft,isObstacle] = placeTrack(inFile,lat0,lon0,varargin)
-
 
 %% Set up input parser
 p = inputParser;
@@ -14,6 +15,7 @@ addOptional(p,'spheroid',wgs84Ellipsoid('ft'));
 addOptional(p,'Delimiter',',');
 addOptional(p,'z_units','agl',@(x) isstr(x) && any(strcmpi(x,{'agl','msl'})));
 addOptional(p,'z_agl_tol_ft',250,@(x) isnumeric(x) && numel(x) == 1);
+addOptional(p,'maxTries',10,@(x) isnumeric(x) && numel(x) == 1);
 
 % Optional - DEM
 addOptional(p,'dem','globe',@ischar);
@@ -61,7 +63,7 @@ numObstacle = size(latObstacle,2);
 %% Translate and rotate trajectory so it doesn't hit an obstacle
 c = 1;
 isObstacle = true; % Set true to enter while loop
-while c <= 10 & isObstacle
+while c <= p.Results.maxTries & isObstacle
     % Select which index will be (0,0)
     % Whatever is (0,0) will pass directly through the anchorpoint
     i0 = randi(numel(time_s),1,1);
@@ -77,7 +79,7 @@ while c <= 10 & isObstacle
     % Convert to lat / lon
     % h(i0) approx el_ft_msl - z_ft(i0);
     h0 = 0; % placeholder, not really used
-    [lat_deg,lon_deg,~] = ned2geodetic(x_ft,y_ft,z_ft,lat0,lon0,h0,p.Results.spheroid);
+    [lat_deg,lon_deg,~] = ned2geodetic(xNorth_ft,yEast_ft,z_ft,lat0,lon0,h0,p.Results.spheroid);
     
     % Check to make sure not hitting obstacle
     isObstacle = false(numObstacle,1);
@@ -96,7 +98,7 @@ while c <= 10 & isObstacle
 end
 
 if isObstacle
-    warning('placeTracks:obstacle','After %i tries, Bayes track still hitting obstacles\nFILE = %s\n',10,inFile);
+    warning('placeTracks:obstacle','After %i tries, Bayes track still hitting obstacles\nFILE = %s\n',p.Results.maxTries,inFile);
 end
 
 %% Convert to MSL if needed and assign
@@ -158,11 +160,10 @@ end
 if p.Results.isPlot
     figure; set(gcf,'name',inFile);
     subplot(1,2,1);
-    geoshow(lat_deg,lon_deg); grid on;
-    xlabel('Latitude (deg)'); ylabel('Longitude (deg)');
+    geoplot(lat_deg,lon_deg); grid on;    
     
     subplot(1,2,2);
-    plot(tq_s,z_ft,tq_s,alt_ft_agl,tq_s,el_ft_msl,time_s,alt_ft_msl); grid on;
+    plot(tq_s,z_ft,tq_s(idx),alt_ft_agl,tq_s,el_ft_msl,time_s,alt_ft_msl); grid on;
     xlabel('time (s)');
     legend('z_ft','alt_ft_agl','el_ft_msl','alt_ft_msl','Interpreter','none','Location','best');
 end

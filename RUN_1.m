@@ -1,14 +1,19 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 %% INPUTS
 % Adminstrative Boundaries and Trajectory Parameters
-iso_3166_2 = {'US-CA','US-FL','US-KS','US-MA','US-MS','US-NC','US-ND','US-NH','US-NY','US-NV','US-OK','US-PR','US-RI','US-TN','US-TX','US-VA'}; % dev cases
+%iso_3166_2 = {'US-CA','US-FL','US-KS','US-MA','US-MS','US-NC','US-ND','US-NH','US-NY','US-NV','US-OK','US-PR','US-RI','US-TN','US-TX','US-VA'}; % dev cases
+iso_3166_2 = {'US-KS','US-MA','US-MS','US-NC','US-ND','US-NV','US-TN','US-VA'};
 %iso_3166_2 = {'US-RI'}; % dev cases
 
-file_airspace = [getenv('AEM_DIR_CORE') filesep 'output' filesep 'airspace-B-C-D-24-Oct-2019.mat'];
+file_airspace = [getenv('AEM_DIR_CORE') filesep 'output' filesep 'airspace-B-C-D-03-Aug-2020.mat'];
 
-usecase = 'heliport5-all-noshield';
+usecase = 'shield';
 
 % Pairs parameters
-anchorRange_nm = 1.25; % Distance pairs need to be away from anchor point 30*(150 / 3600) = 1.25...closing speed of 150 knots for 30 seconds
+% 30*(150 / 3600) = 1.25...closing speed of 150 knots for 30 seconds
+% 2000 ft = well clear
+anchorRange_nm = 1.00; % Distance pairs need to be away from anchor point 
 
 %% Create status table to record performance
 if ~iscolumn(iso_3166_2)

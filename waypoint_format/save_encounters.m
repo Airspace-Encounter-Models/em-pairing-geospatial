@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function save_encounters(filename, encounters, varargin)
 % function save_encounters(filename, encounters, varargin)
 %

@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function suas_traj_to_wp(inputDir, fout, varargin)
     if ~contains(fout, '.dat')
         error('Output should be .dat file');

@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [sidxFoward, sidxBackward, eidxFoward, eidxBackward, time_s] = findCropIdx(cidx,timeThres_s,method,varargin)
 
 % Todo

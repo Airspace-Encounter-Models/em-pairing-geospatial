@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [course, d_nm,t_legs_s] = calcLegsTime(lat,lon,v_kts)
 % Calculate distance between legs
 [course,d_nm] = legs(lat,lon,'rh');

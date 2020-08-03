@@ -1,4 +1,6 @@
-% Path
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
+%% Path
 % Add utilities, such as msl2agl
 addpath(genpath([getenv('AEM_DIR_CORE') filesep 'matlab']))
 addpath(genpath('waypoint_format'))

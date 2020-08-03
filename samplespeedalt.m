@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [v1_kts,v2_kts,altAdjust1_ft,altAdjust2_ft] = samplespeedalt(p,n,ac1Alt_ft_agl,ac2Alt_ft_agl)
 
 %% Sample aircraft speed for each cpa combination

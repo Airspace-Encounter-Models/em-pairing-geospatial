@@ -39,3 +39,4 @@ octave-workspace
 *.mat
 *.dat
 *.zip
+*.TMP

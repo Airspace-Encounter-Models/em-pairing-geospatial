@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [anchors, listing, numClust] = findPairs_1(inDir,outHash,gridLat_deg,gridLon_deg,airspace,varargin)
 
 %% Things that should be input parser
@@ -126,7 +128,7 @@ for k=1:1:numClust
     % Filter airspace based on bounding box
     [~, ~, inAir] = filterboundingbox(airspace.LAT_deg,airspace.LON_deg,bbox);
     
-    % Filter airspace based on altitude ceiling
+    % Filter airspace based on altitude surface
     isAir = inAir & cellfun(@min,airspace.LOWALT_ft_agl) <= 0;
     
     % Airspace

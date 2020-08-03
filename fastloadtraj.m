@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [time_s, lat_deg, lon_deg, alt_ft_msl, alt_ft_agl] = textscantraj(inFile)
 
 % Open, read, and close file

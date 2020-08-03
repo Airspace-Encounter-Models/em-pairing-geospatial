@@ -1,0 +1,5 @@
+SPDXVersion: SPDX-2.1
+PackageName: em-pairing-geospatial
+PackageOriginator: MIT Lincoln Laboratory
+PackageHomePage: https://github.com/Airspace-Encounter-Models/em-pairing-geospatial
+PackageLicenseDeclared: BSD-2-Clause

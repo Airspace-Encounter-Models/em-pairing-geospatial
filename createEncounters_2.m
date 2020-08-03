@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [encCount, anchors, files1, files2, isEncounter] = createEncounters_2(inFile,encTime_s,thresHorz_ft,thresVert_ft,outDir,varargin)
 % CREATEENCOUNTERS_2 OUTPUTS ENCOUNTERS IN CSIM WAYPOINT FORMAT
 
@@ -222,7 +224,6 @@ end
 
 %% Randomly sample a Bayes trajectory for each anchor point
 % AC1 must be geospatial
-
 if numel(files1) >= numel(files2)
     % More files in AC1
     files2 = files2(randi(numel(files2),numel(files1),1));
@@ -295,6 +296,7 @@ for k=1:1:numClust
                 % Set random seed
                 rng(i);
                 [time2_s{i},lat2_deg{i},lon2_deg{i},alt2_ft_msl{i},alt2_ft_agl{i},~,~,~,isObstacle2(i)] = placeTrack(files2{lk(i)},lat0(lk(i)), lon0(lk(i)),'z_agl_tol_ft',p.Results.z_agl_tol_ft,...
+                    'maxTries',10,...
                     'latObstacle',latObstacle,'lonObstacle',lonObstacle,'altObstacle_ft_agl',altObstacle_ft_agl,...
                     'labelX',p.Results.labelX,'labelY',p.Results.labelY,'labelZ',p.Results.labelZ,...
                     'spheroid',p.Results.spheroid,'dem',p.Results.demBayes,'Z_m',Z_m,'refvec',refvec,'isPlot',false);

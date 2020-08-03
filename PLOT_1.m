@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 %% Inputs
 % Parameters from RUN_1.m
 iso_3166_2 = {'US-CA','US-KS','US-MA','US-MS','US-NC','US-NV','US-NY','US-TX','US-VA'};

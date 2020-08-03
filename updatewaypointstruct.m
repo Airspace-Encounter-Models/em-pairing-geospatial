@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [waypoints_struct,encCount,encAdd] = updatewaypointstruct(p,waypoints_struct,encCount,ac1NEU_foward,ac2NEU_foward,ac1NEU_backward,ac2NEU_backward)
 
 encAdd = false;

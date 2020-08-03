@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 %SAVE_WAYPOINTS   Save waypoints to a file.
 %   SAVE_WAYPOINTS(FILENAME, STRUCTURE) saves a structure holding the 
 %   waypoints to the specified file.

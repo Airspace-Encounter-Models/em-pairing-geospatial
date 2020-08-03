@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function wp = neu_to_wp_struct(ac1,ac2)
     % Modify time so it starts from 0
     ac1(:,1) = ac1(:,1) - ac1(1,1);

@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [wypts,ac1Time_s,ac1Lat_deg,ac1Lon_deg,ac1Alt_ft_msl,ac2Time_s,ac2Lat_deg,ac2Lon_deg,ac2Alt_ft_msl] = findconflict(p,time1_s,lat1_deg,lon1_deg,alt1_ft_msl,time2_s,lat2_deg,lon2_deg,alt2_ft_msl,lat0,lon0,anchorRange_ft)
 
 %% Get waypoints

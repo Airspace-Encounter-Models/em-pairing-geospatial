@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function waypoints_csim = neu2wpstruct(ac1NEU,ac2NEU,encTime_s,initHorz_ft,initVert_ft)
 
 waypoints_csim = [];

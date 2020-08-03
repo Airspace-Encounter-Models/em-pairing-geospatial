@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [ac1NEU_foward,ac2NEU_foward,ac1NEU_backward,ac2NEU_backward] = croptracks(p,wypts,encTime_s,ac1Time_s,ac2Time_s,ac1Lat_deg,ac2Lat_deg,ac1Lon_deg,ac2Lon_deg,ac1North_ft,ac2North_ft,ac1East_ft,ac2East_ft,ac1Alt_ft_msl,ac2Alt_ft_msl,altAdjust1_ft,altAdjust2_ft,v1_kts,v2_kts)
 
 % Find CPA  waypoint indices

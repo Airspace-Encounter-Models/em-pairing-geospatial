@@ -1,3 +1,5 @@
+% Copyright 2019 - 2020, MIT Lincoln Laboratory
+% SPDX-License-Identifier: BSD-2-Clause
 function [outTime, outX, outY, outZ] = interpTime(step_s,time_s,x,y,z,varargin)
 % INTERPTIME interpolates X,Y,Z position coordinates with a new timestep
 % SEE ALSO: interp1
