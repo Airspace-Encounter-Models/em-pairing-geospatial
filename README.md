@@ -316,6 +316,10 @@ Default output directory for RUN scripts and functions. Files and subdirectories
 
 ## Citation
 
+Please use this DOI number reference when citing the software:
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3978267.svg)](https://doi.org/10.5281/zenodo.3978267)
+
 Please use this publication when citing the high level concepts of the encounter generation method:
 
 <details> <summary> A. Weinert, M. Edwards, L. Alvarez, and S. Katz, “Representative Small UAS Trajectories for Encounter Modeling,” in AIAA Scitech 2020 Forum, 2020, pp. 1–10.</summary>
