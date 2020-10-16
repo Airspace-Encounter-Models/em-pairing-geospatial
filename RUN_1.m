@@ -52,7 +52,9 @@ for i=1:1:numel(iso_3166_2)
     % Uncomment to plot
     % figure(i); set(gcf,'name',iso_3166_2{i}); worldmap(BoundingBox_wgs84(:,2),BoundingBox_wgs84(:,1)); geoshow(gridLat_deg,gridLon_deg,'DisplayType','point'); grid on;
     
-    % Input directories
+    % Input directories for ownship files
+    % The following code assumes you're using em-model-geospatial.
+    % If not, replace this section with code to identify the filenames of your ownship trajectory files
     listing = dir([getenv('AEM_DIR_GEOSPATIAL') filesep 'output' filesep 'trajectories' filesep iso_3166_2{i} '*' filesep '*']);
     listing(ismember( {listing.name}, {'.', '..'})) = [];  %remove . and ..
     isShield = contains({listing.folder},'shield');
