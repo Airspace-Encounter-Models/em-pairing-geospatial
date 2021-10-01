@@ -40,3 +40,4 @@ octave-workspace
 *.dat
 *.zip
 *.TMP
+*.fig
