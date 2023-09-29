@@ -13,6 +13,8 @@ and this project should adhere to [Semantic Versioning](https://semver.org/spec/
 
 ### Fixed
 
+- Bug fix in `createISO31662Grid` when indexing natural earth data using iso_3166_2 column
+
 ### Removed
 
 ## [2.0.0] - 2021-10-01

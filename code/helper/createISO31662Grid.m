@@ -11,16 +11,20 @@ if nargin < 3; isPlot = false; end
 ne_admin = shaperead([getenv('AEM_DIR_CORE') filesep 'data' filesep 'NE-Adminstrative' filesep 'ne_10m_admin_1_states_provinces.shp'],'UseGeoCoords',true);
 
 % Create bounding box
-BoundingBox_wgs84 = ne_admin(strcmp({ne_admin.iso_3166_2},iso_3166_2)).BoundingBox;
+idx_iso = find(contains({ne_admin.iso_3166_2},iso_3166_2,'IgnoreCase',true));
+if isempty(idx_iso)
+    error('iso_3166_2:missing','Cannot find iso_3166_2 = %s in natural earth data', iso_3166_2);
+end
+BoundingBox_wgs84 = ne_admin(idx_iso).BoundingBox;
 
-neLat_deg = ne_admin(strcmp({ne_admin.iso_3166_2},iso_3166_2)).Lat;
-neLon_deg = ne_admin(strcmp({ne_admin.iso_3166_2},iso_3166_2)).Lon;
+neLat_deg = ne_admin(idx_iso).Lat;
+neLon_deg = ne_admin(idx_iso).Lon;
 
 % Create grid
 [gridLat_deg, gridLon_deg] = meshgrid(min(neLat_deg):nm2deg(anchorRange_nm):max(neLat_deg),min(neLon_deg):nm2deg(anchorRange_nm):max(neLon_deg));
 
 % Filter grid for those only in the location
-isGrid = InPolygon(gridLat_deg,gridLon_deg,neLat_deg,neLon_deg);
+isGrid = inpolygon(gridLat_deg,gridLon_deg,neLat_deg,neLon_deg);
 
 gridLat_deg = gridLat_deg(isGrid);
 gridLon_deg = gridLon_deg(isGrid);
